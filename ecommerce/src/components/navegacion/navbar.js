@@ -1,36 +1,35 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-const Navbar = () => {
+function BasicExample() {
   return (
-    <div>
-        <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <Link to='/'>
-        <img src='./logo_magnolia2.svg' width='70' alt=''></img>
-    </Link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-
-        <li class="nav-item">
-          <Link class="nav-link " to='/' >Inicio</Link>
-        </li>
-        <li class="nav-item">
-          <Link  class="nav-link " to='/nosotros' >Nosotros</Link>
-        </li>
-        <li class="nav-item">
-          <Link  class="nav-link " to='/items' >Items</Link>
-        </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-    </div>
-  )
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home"><img src='./logo_magnolia2.svg' width='70' alt=''></img></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/items">Items</Nav.Link>
+            <Nav.Link href="/carrito"><img src='./cart.svg' width='20' alt=''></img></Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Navbar
+export default BasicExample;
